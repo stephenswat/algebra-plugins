@@ -32,9 +32,8 @@ endif()
 
 # Set up some simple variables for using the package.
 set( algebra_plugins_VERSION "@PROJECT_VERSION@" )
-set_and_check( algebra_plugins_INCLUDE_DIR
-   "@PACKAGE_CMAKE_INSTALL_INCLUDEDIR@" )
-set_and_check( algebra_plugins_CMAKE_DIR "@PACKAGE_CMAKE_INSTALL_CMAKEDIR@" )
+set_and_check(algebra_plugins_INCLUDE_DIR "@PACKAGE_CMAKE_INSTALL_INCLUDEDIR@/include")
+set_and_check(algebra_plugins_CMAKE_MODULES_DIR ${algebra_plugins_LIB_DIR}/cmake/algebra-plugins)
 
 # Print a standard information message about the package being found.
 include( FindPackageHandleStandardArgs )
@@ -43,4 +42,4 @@ find_package_handle_standard_args( algebra-plugins REQUIRED_VARS
    VERSION_VAR algebra_plugins_VERSION )
 
 # Include the file listing all the imported targets and options.
-include( "${algebra_plugins_CMAKE_DIR}/algebra-plugins-config-targets.cmake" )
+include( "@PACKAGE_CMAKE_INSTALL_PREFIX@/@PACKAGE_INSTALL_DESTINATION@/algebra-plugins-config-targets.cmake" )
