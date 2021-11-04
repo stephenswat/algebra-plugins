@@ -42,4 +42,6 @@ find_package_handle_standard_args( algebra-plugins REQUIRED_VARS
    VERSION_VAR algebra_plugins_VERSION )
 
 # Include the file listing all the imported targets and options.
-include( "@PACKAGE_CMAKE_INSTALL_PREFIX@/@PACKAGE_INSTALL_DESTINATION@/algebra-plugins-config-targets.cmake" )
+include( "${algebra_plugins_CMAKE_DIR}/algebra-plugins-config-targets.cmake" )
+
+check_required_components(algebra_plugins)
