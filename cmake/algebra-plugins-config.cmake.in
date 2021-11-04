@@ -43,5 +43,3 @@ find_package_handle_standard_args( algebra-plugins REQUIRED_VARS
 
 # Include the file listing all the imported targets and options.
 include( "${algebra_plugins_CMAKE_DIR}/algebra-plugins-config-targets.cmake" )
-
-check_required_components(algebra_plugins)
