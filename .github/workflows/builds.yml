@@ -46,11 +46,6 @@ jobs:
     # Perform the build.
     - name: Build
       run: cmake --build build --config ${{ matrix.BUILD_TYPE }}
-    # Store the binaries.
-    - uses: actions/upload-artifact@v3
-      with:
-        name: ci-binaries
-        path: build
     # Run the unit test(s).
     - name: Test
       run: |
