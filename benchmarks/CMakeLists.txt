@@ -19,9 +19,9 @@ add_library( algebra::bench_common ALIAS algebra_bench_common )
 
 # Set up all of the (available) "host" benchmarks.
 add_library( algebra_bench_array INTERFACE )
-target_include_directories( algebra_bench_array INTERFACE 
+target_include_directories( algebra_bench_array INTERFACE
    "$<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/array/include>" )
-target_link_libraries(algebra_bench_array INTERFACE algebra::array_cmath 
+target_link_libraries(algebra_bench_array INTERFACE algebra::array_cmath
                                                     algebra::common_storage)
 add_library( algebra::bench_array ALIAS algebra_bench_array )
 
@@ -36,7 +36,7 @@ algebra_add_benchmark( array_vector
 
 if( ALGEBRA_PLUGINS_INCLUDE_EIGEN )
    add_library( algebra_bench_eigen INTERFACE )
-   target_include_directories( algebra_bench_eigen INTERFACE 
+   target_include_directories( algebra_bench_eigen INTERFACE
       "$<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/eigen/include>" )
    target_link_libraries(algebra_bench_eigen INTERFACE algebra::eigen_eigen
                                                     algebra::common_storage)
@@ -53,9 +53,9 @@ if( ALGEBRA_PLUGINS_INCLUDE_EIGEN )
 endif()
 
 if( ALGEBRA_PLUGINS_INCLUDE_VC )
-   if( NOT "${CMAKE_CXX_COMPILER_ID}" MATCHES "AppleClang" )
+#   if( NOT "${CMAKE_CXX_COMPILER_ID}" MATCHES "AppleClang" )
       add_library( algebra_bench_vc_soa INTERFACE )
-      target_include_directories( algebra_bench_vc_soa INTERFACE 
+      target_include_directories( algebra_bench_vc_soa INTERFACE
          "$<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/vc_soa/include>" )
       target_link_libraries(algebra_bench_vc_soa INTERFACE
                                                       algebra::vc_soa
@@ -70,5 +70,5 @@ if( ALGEBRA_PLUGINS_INCLUDE_VC )
          "vc_soa/vc_soa_vector.cpp"
          LINK_LIBRARIES benchmark::benchmark algebra::bench_common
                         algebra::bench_vc_soa algebra::vc_soa )
-   endif()
+#   endif()
 endif()

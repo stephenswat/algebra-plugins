@@ -43,16 +43,16 @@ if( ALGEBRA_PLUGINS_INCLUDE_VC )
       LINK_LIBRARIES GTest::gtest_main algebra::tests_common
                       algebra::vc_storage algebra::vc_cmath algebra::vc_vc )
 
-   if( NOT "${CMAKE_CXX_COMPILER_ID}" MATCHES "AppleClang" )
+#   if( NOT "${CMAKE_CXX_COMPILER_ID}" MATCHES "AppleClang" )
       algebra_add_test( vc_soa
          "vc_soa/vc_soa.cpp"
-         LINK_LIBRARIES GTest::gtest_main algebra::vc_soa_storage 
+         LINK_LIBRARIES GTest::gtest_main algebra::vc_soa_storage
                         algebra::vc_soa )
-   endif()
+#   endif()
 endif()
 
 if( ALGEBRA_PLUGINS_INCLUDE_FASTOR )
-   algebra_add_test( fastor 
+   algebra_add_test( fastor
       "fastor/fastor_fastor.cpp"
       LINK_LIBRARIES GTest::gtest_main algebra::tests_common
                      algebra::fastor_fastor )
